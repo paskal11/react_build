@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import './Hero.css';
 
 const Hero = () => {
+    const [features, setFeatures] = React.useState([]);
+    useEffect(() => {
+        const fetchFeatures = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/heroes'); // Замените на правильный эндпоинт
+                setFeatures(response.data.data); 
+            } catch (error) {
+                console.error('Ошибка загрузки функций:', error);
+            }
+        };
+        fetchFeatures();
+    }, []);
     return (
-        <section className="hero">
-            <h2>Добро пожаловать на наш лендинг!</h2>
-            <p>Лучшие решения для вашего бизнеса.</p>
-            <button>Узнать больше</button>
-        </section>
+    <>
+        {features.length > 0 && (<section className="hero">
+            <h2>{features[0].title}</h2>
+                <p>{features[0].description }</p>
+            <button>{features[0].button }</button>
+            </section>)}
+    </>
     );
 };
 
