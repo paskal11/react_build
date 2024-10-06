@@ -1,36 +1,19 @@
-import logo from './logo.svg';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
+import Header from './components/Header/Header.jsx';
+import Hero from './components/Hero/Hero.jsx';
+import Features from './components/Features/Features.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import './App.css';
 
-function App() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch('https://jsonplaceholder.org/posts/1')
-    .then(response => response.json()).then(data => setData(data));
-     
-  })
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h1>{data?.title}</h1>
-        
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="App">
+            <Header />
+            <Hero />
+            <Features />
+            <Footer />
+        </div>
+    );
+};
 
 export default App;
