@@ -7,7 +7,7 @@ const Header = () => {
     useEffect(() => {
         const fetchFeatures = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/api/headers'); // Замените на правильный эндпоинт
+                const response = await axios.get('https://strapi-build-65om.onrender.com/api/headers'); 
                 setFeatures(response.data.data); 
             } catch (error) {
                 console.error('Ошибка загрузки функций:', error);

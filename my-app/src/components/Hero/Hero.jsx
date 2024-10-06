@@ -7,7 +7,7 @@ const Hero = () => {
     useEffect(() => {
         const fetchFeatures = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/api/heroes'); // Замените на правильный эндпоинт
+                const response = await axios.get(`https://strapi-build-65om.onrender.com/api/heroes`);
                 setFeatures(response.data.data); 
             } catch (error) {
                 console.error('Ошибка загрузки функций:', error);
