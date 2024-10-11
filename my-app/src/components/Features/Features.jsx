@@ -7,10 +7,10 @@ const Features = () => {
     useEffect(() => {
         const fetchFeatures = async () => {
             try {
-                const response = await axios.get(`https://strapi-build-65om.onrender.com/api/features`); 
+                const response = await axios.get(`${process.env.REACT_APP_URL}features`); 
                 setFeatures(response.data.data); 
             } catch (error) {
-                console.error('Ошибка загрузки функций:', error);
+                console.error(error);
             }
         };
 
@@ -21,7 +21,6 @@ const Features = () => {
       {
     features.length > 0 && (
         <section className="features" id="features">
-            <h2>Cards</h2>
             <div className="features__list">
                 {features.map((feature) => (
                     <div key={feature.id} className="features__item">

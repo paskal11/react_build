@@ -7,7 +7,7 @@ const Header = () => {
     useEffect(() => {
         const fetchFeatures = async () => {
             try {
-                const response = await axios.get('https://strapi-build-65om.onrender.com/api/headers'); 
+                const response = await axios.get(`${process.env.REACT_APP_URL}headers`); 
                 setFeatures(response.data.data); 
             } catch (error) {
                 console.error('Ошибка загрузки функций:', error);
